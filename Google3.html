@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Google</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div  class="bg_img_con"></div>
+    <div class="toolbar">
+        <a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl">
+            <p>Gmail</p>
+        </a>
+        <a href="https://www.google.co.in/imghp?hl=en&tab=ri&authuser=0&ogbl">
+            <p>Images</p>
+        </a>
+        <a href="#">
+            <img src="bars.png">
+        </a>
+        <a href="#" class="sign_in">
+            <p>Sign In</p>
+        </a>
+        </div>
+    </div>    
+	<img src="google.png" class="logo">
+    <div class="search_box">
+		<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search" onkeydown="if (event.keyCode == 13) {search(this.value); this.value= ''}">
+		<img src="mic.png" class="mic">
+		<img src="search.png" class="search_icon" id="search_icon" onclick="search(document.getElementById('search').value)">
+	</div>    
+    <div class="bookmarks"></div>
+	<form class="add_bookmark_con">
+		<p class="add_bookmark_con_heading">Add Sortcut</p>
+		<div class="name_div">
+			<p>Name</p>
+			<input type="text" class="add_bookmark_name" required>
+		</div>
+		<div class="url_div">
+			<p>URL</p>
+			<input type="text" class="add_bookmark_url" required>
+		</div>
+		<div class="img_div">
+			<p>Icon Path</p>
+			<input type="text" class="add_bookmark_img_path">
+		</div>
+		<div>
+			<input type="button" value="Cancel" class="cancel_sortcut_btn">
+			<input type="submit" value="Save" class="save_sortcut" data-click_func="save_bm_check()">
+		</div>
+	</form>
+	<div class="custom_btn"><p>Customize Chrome</p></div>
+    <div class="custom_tab">
+		<div class="bgimg_section">
+			<div class="heading">Change Background Image</div>
+			<div class="bg_imgs">
+				<div class="blank_img bg_img" onclick="localStorage.setItem('bg_img',''); document.querySelector('.bg_img_con').style.cssText = `background: url('')`"></div>
+				<img class="bg_img bg" src="78888804_p0.png">
+				<img class="bg_img bg" src="85218024_p0.png">
+				<img class="bg_img bg" src="Screenshot (37).png">
+				<img class="bg_img bg" src="Screenshot (42).png">
+				<div class="bg_img bg_img_add"><img style="width: 20px; position: relative; top: 35%;" src="plus.png"></div>
+			</div>
+		</div>
+		<div class="bg_img_blur">
+			<div class="heading">On or Off Background Image Blurety</div>
+			<input type="range" min="0" max="30" class="bg_img_blur_check" name="">
+		</div>
+		<div class="bg_img_blur">
+			<div class="heading">Transparancy</div>
+			<input type="range" min="0" max="1" step="0.1" class="bg_img_blur_check bg_transparancy_check" name="">
+		</div>
+		<div class="text_clr_con">
+			<div class="text_clrs">
+				<div class="text_clr"></div>
+				<div class="text_clr"></div>
+				<div class="text_clr"></div>
+				<div class="text_clr"></div>
+				<div class="text_clr"></div>
+			</div>
+		</div>
+		<div class="del_btn_con">
+            <input type="button" value="Clear All Data" onclick="localStorage.clear(); window.location.reload()" title="Bookmarks, Blur, Background Image .etc">
+        </div>
+	</div>
+	<form class="add_bg_img_con">
+		<p>Add Background Image</p>
+		<div>
+			<p>Image Path</p>
+			<input type="text" class="bg_img_path" required> 
+		</div>
+		<div>
+			<input type="button" value="Cancel" class="cancel_bg_img_btn">
+			<input type="submit" class="change_bg_img" value="Done">
+		</div>
+	</form>
+	<form class="sign_in_con" method="post" action="">
+		<p class="sign_in_con_heading">Sign In</p>
+		<div class="sign_in_name_div">
+			<p>Name</p>
+			<input type="text" class="sign_in_name" required>
+		</div>
+		<div class="sign_in_pass_div">
+			<p>Password</p>
+			<input type="text" class="sign_in_url" required>
+		</div>
+		<div>
+			<input type="button" value="Cancel" class="cancel_sign_in_btn">
+			<input type="submit" value="Sign In" class="sign_in_dt_submit">
+		</div>
+	</form>
+<script  src="script.js"></script>
+</body>
+</html>

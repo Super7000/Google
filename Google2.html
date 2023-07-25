@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Google</title>
+	<link rel="icon" type="image/png" href="88775396_p0.png">
+	<style type="text/css">
+		#body
+		{
+			width: 100%;
+			min-height: 100vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			filter: blur(5px);
+		}
+		.icon
+		{
+			position: absolute;
+			top: 32%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: 2;
+		}
+		.search
+		{
+			width: calc(100% - 100px);
+			height: 20px;
+			padding: 12px 50px;
+			border-radius: 40px;
+			box-shadow: 1px 1px 7px rgba(0,0,0,0.2);
+			font-size: 14px;
+			font-family: verdana;
+			outline: none;
+			border: none;			
+		}
+		.search::placeholder
+		{
+			font-weight: bold;
+			font-size: 15px;
+			font-family: Myanmar Text;
+		}
+		.search_box
+		{
+			width: 40%;
+			position: absolute;
+			top: 48%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		.mic
+		{
+			position: absolute;
+			width: 12px;
+			right: 17px;
+			top: 50%;
+			transform: translate(0%,-50%);
+			cursor: pointer;
+		}
+		.search_icon
+		{
+			position: absolute;
+			width: 16px;
+			left: 17px;
+			top: 50%;
+			transform: translate(-0%,-50%);
+			cursor: pointer;
+		}
+		.table
+		{
+			position: absolute;
+			right: 20px;
+			z-index: 2;
+		}
+		.table td a div
+		{
+			cursor: pointer;
+			font-size: 14px;
+			font-family: verdana;
+			padding: 10px 15px;
+			border-radius: 5px;
+			transition: 0.2s;
+		}
+		.table td a div:hover
+		{
+			background: rgba(0,0,0,0.1);
+		}
+		.table td a div:active
+		{			
+			box-shadow: 0 0 5px rgba(0,0,0,0.2);
+		}
+		#menu_link
+		{
+			text-decoration: none;
+			color: #000;
+		}
+		.sign_in
+		{
+			background: dodgerblue;
+		}
+		.custom
+		{
+			font-size: 15px;
+			font-family: verdana;
+			color: dodgerblue;
+			padding: 10px 20px;
+			width: 145px;
+			border-radius: 40px;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.30);
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			background: #fff;
+			transition: 0.2s;
+		}
+		.custom_check
+		{
+			width: 180px;
+			height: 40px;
+			position: absolute;
+			bottom: 18px;
+			right: 20px;
+			cursor: pointer;
+			z-index: 2;
+			-webkit-appearance: none;
+		}
+		.custom_slide
+		{
+			position: absolute;
+			left: -30%;
+			width: 27%;
+			height: 97vh;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			transition: 0.3s;
+		}
+		.bg_imgs
+		{
+			width: 95%;
+			height: 200px;
+			position: absolute;
+			left: 7px;
+			top: 80px;
+		}
+		.bgimg_head
+		{
+			font-family: verdana;
+			font-size: 20px;
+			position: absolute;
+			top: 60px;
+			left: 15px;
+		}
+		.bg_img
+		{
+			width: 30%;
+			height: 70px;
+			position: absolute;
+			transition: 0.2s;
+			border: 1px solid #000;
+		}
+		.bg_img:hover
+		{
+			width: 32%;
+			height: 75px;
+			border: 2px solid #000;
+		}
+		.blank_img
+		{
+			background: #fff;
+			width: 30%;
+			height: 70px;
+			position: absolute;
+			left: 7px;
+			top: 25px;
+			transition: 0.2s;
+			border: 1px solid #000;
+		}
+		.blank_img:hover
+		{
+			width: 32%;
+			height: 75px;
+			left: calc(7px - 1%);
+			top: calc(25px - 3px);
+			border: 2px solid #000;
+		}
+		.bg_img4
+		{
+			top: 110px;
+			left: 7px;
+		}
+		.bg_img4:hover
+		{
+			left: calc(7px - 1%);
+		}
+		.bg_img1
+		{
+			top: 25px;
+			left: 50%;
+			transform: translate(-50%,0%);
+		}
+		.bg_img5
+		{
+			top: 110px;
+			left: 50%;
+			transform: translate(-50%,0%);
+		}
+		.bg_img2
+		{
+			left: 67.5%;
+			top: 25px;
+		}
+		.bg_img1:hover,.bg_img2:hover
+		{
+			top: calc(25px - 3px);
+		}
+		.bg_img2:hover,.bg_img_add:hover
+		{
+			left: 66.5%
+		}
+		.bg_img4:hover,.bg_img5:hover,.bg_img_add:hover
+		{
+			top: calc(110px - 3px);
+		}		
+		.bg_img_add
+		{
+			left: 67.5%;
+			top: 110px;
+			cursor: pointer;
+		}
+		.bg_img_add_icon
+		{
+			font-size: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-51%, -51%);
+		}
+		.close
+		{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			right: 20px;
+			top: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.close1,.close2
+		{
+			width: 12px;
+			height: 2.5px;
+			border-radius: 3px;
+			position: absolute;
+			background: #000;			
+		}
+		.close1
+		{
+			transform: rotate(45deg);
+			top: 16px;
+		}
+		.close2
+		{
+			transform: rotate(-45deg);
+			top: 9px;
+		}
+		.close3
+		{
+			width: 20px;
+			height: 3px;
+			background: #000;
+			position: absolute;
+			top: 12.5px;
+			left: 2px;
+			border-radius: 3px;
+		}
+		.bars_slide
+		{
+			width: 200px;
+			height: 250px;
+			background: #fff;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+			position: absolute;
+			right: 50px;
+			top: -500px;
+			opacity: 0;
+			border-radius: 10px;
+			z-index: 2;
+		}
+		#bars_slide_checkbox
+		{
+			position: absolute;
+			right: 105px;
+			top: 7px;
+			width: 45px;
+			height: 45px;
+			-webkit-appearance: none;
+			z-index: 3;
+			cursor: pointer;
+		}
+		#bars_slide_checkbox:hover ~ .bars
+		{
+			background: rgba(0, 0, 0, 0.20);
+		}
+		.tab_table
+		{			
+			position: absolute;
+			top: 65%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.link_tab
+		{
+			width: 100px;
+			height: 110px;
+			border-radius: 7px;
+			border: 1px solid rgba(0, 0, 0, 0.0);
+		}
+		.link_tab:hover
+		{
+			background: rgba(255,255,255,0.50);
+			border: 1px solid rgba(0, 0, 0, 0.20);
+		}
+		.link_tab_circle_1,.link_tab_circle_2,.link_tab_circle_3
+		{
+			width: 45px;
+			height: 45px;
+			border-radius: 50%;
+			background: #fff;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.50);
+			position: absolute;
+			top: 20px;
+		}
+		.link_tab_circle_1
+		{
+			left: 32px;
+		}
+		.link_tab_circle_2
+		{
+			left: 137px;
+		}
+		.link_tab_circle_3
+		{
+			left: 243px;
+		}
+		.link_tab_link
+		{
+			text-decoration: none;
+			font-size: 12px;
+			font-family: verdana;
+			color: #000;
+		}
+		.link_tab_para1,.link_tab_para2,.link_tab_para3
+		{
+			position: absolute;
+			top: 60%;
+		}
+		.link_tab_para1
+		{
+			left: 22px;
+		}
+		.link_tab_para2
+		{
+			left: 128px;
+		}
+		.link_tab_para3
+		{
+			left: 252px;
+		}
+		.link_tab_img_para
+		{
+			position: absolute;
+			font-size: 25px;
+			left: 50%;
+			top: -4px;
+			transform: translate(-50%, -50%)
+		}
+		.link_tab_img
+		{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			left: 50%;
+			top: 49%;
+			transform: translate(-50%, -50%);
+		}
+		.bgimg_blur_head
+		{
+			font-family: verdana;
+			font-size: 20px;
+			position: absolute;
+			top: 300px;
+			left: 15px;
+		}
+		#bg_img_blur_check
+		{
+			position: absolute;
+			top: 370px;
+			left: 15px;
+			width: 55px;
+			height: 20px;
+			z-index: 3;
+		}
+		#bg_img_blur_check::after
+		{
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: 32.5px;
+			height: 15px;
+			width: 15px;
+			background: #fff;
+			border-radius: 50%;
+			transition: 0.3s;
+			-webkit-appearance: none;
+		}
+		#bg_img_blur_check::before
+		{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 25px;
+			width: 55px;
+			background: dodgerblue;
+			border-radius: 15px;	
+			transition: 0.3s;		
+		}
+		#bg_img_blur_check:checked::after
+		{
+			left: 5px;
+		}
+		#bg_img_blur_check:checked::before
+		{
+			background: rgba(211,211,211, 1.0)
+		}
+		.add_link
+		{
+			position: absolute;
+			top: -250px;
+			left: 50%;
+			height: 350px;
+			width: 400px;
+			background: #fff;
+			border-radius: 10px;
+			padding: 20px;
+			transform: translate(-50%, -50%);
+			z-index: 3;
+			transition: 0.3s;
+		}
+		.add_link_btn,.add_link_cancel_btn
+		{
+			padding: 10px 15px;
+			border: 2px solid dodgerblue;
+			font-size: 18px;
+			font-family: verdana;
+			border-radius: 10px;
+			position: absolute;
+			bottom: 20px;
+			cursor: pointer;
+		}
+		.add_link_btn
+		{
+			background: dodgerblue;
+			left: 45%;
+			color: #fff;
+			width: 50px;
+		}
+		.add_link_cancel_btn
+		{
+			width: 60px;
+			background: #fff;
+			left: 70%;
+			color: dodgerblue;
+		}
+		.add_link_name_para,.add_link_url_para,.add_link_img_para
+		{
+			font-size: 18px;
+			font-family: verdana;
+			position: relative;
+			left: 20px;
+			top: -5px;
+		}
+		.add_link_name,.add_link_url,.add_link_img_path
+		{
+			width: 80%;
+			height: 10px;
+			padding: 10px 15px;
+			position: relative;
+			top: -5px;
+			left: 20px;
+			border-radius: 5px;
+			outline: none;
+			border: 2px dotted orange;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.10);
+		}
+		#webpage_img
+		{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			left: 50%;
+			top: 54%;
+			transform: translate(-50%, -50%);
+			opacity: 0;
+		}
+		.del_link
+		{
+			background: dodgerblue;
+			padding: 10px 15px;
+			border-radius: 10px;
+			position: absolute;
+			top: 450px;
+			left: 20px;
+			width: 160px;
+			color: #fff;
+			font-size: 20px;
+			font-family: verdana;
+			cursor: pointer;
+		}
+		.bg_img_add_slide
+		{
+			width: 400px;
+			height: 250px;
+			border-radius: 10px;
+			background: #fff;
+			z-index: 3;
+			position: absolute;
+			top: -50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			box-shadow: 0 0 15px 00vh rgba(0, 0, 0, .30);
+			transition: 0.3s;
+		}
+		.bg_img_add_slide_para
+		{
+			font-size: 20px;
+			font-family: verdana;
+			position: absolute;
+			left: 40px;
+			top: 20px;
+		}
+		.bg_img_src
+		{
+			width: 70%;
+			padding: 10px 15px;
+			outline: none;
+			position: absolute;
+			top: 90px;
+			left: 40px;
+		}
+		.bg_img_add_btn
+		{
+			width: 50px;
+			background: dodgerblue;
+			color: #fff;
+			font-size: 20px;
+			font-family: verdana;
+			padding: 10px 15px;
+			border-radius: 7px;
+			border: 2px solid dodgerblue;
+			position: absolute;
+			left: 40%;
+			bottom: 30px;
+			cursor: pointer;
+		}
+		.bg_img_add_cancel_btn
+		{
+			width: 67px;
+			background: #fff;
+			color: dodgerblue;
+			font-size: 20px;
+			font-family: verdana;
+			padding: 10px 15px;
+			border: 2px solid dodgerblue;
+			border-radius: 7px;
+			position: absolute;
+			bottom: 30px;
+			right: 40px;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		function search() {
+			var a = document.getElementById('search');
+			var b = a.value.trim().toLowerCase();
+	        var c = b.length;
+	        if (c > 0) {
+	          if (b.search('http') == 0 || b.search('file') == 0) {
+	            window.location.href = b;
+	          } else {
+	            window.location = 'https://www.google.com/search?q=' + b;
+	          }
+	        } else {
+
+	        }
+		}
+		function custom_slide() {
+			var a = document.getElementById('custom_slide');
+			var b = document.getElementById('custom_check');
+			var c = document.getElementById('custom');
+			if (b.checked == true) {
+				a.style.cssText = "left: 10px;";
+				b.style.cssText = "left: -500px;";
+				c.style.cssText = "opacity: 0;";
+			} else {
+				a.style.cssText = "";
+				b.style.cssText = "";
+				c.style.cssText = "";
+			}
+		}
+		function bars_slide() {
+			var a = document.getElementById('bars_slide');
+			var b = document.getElementById('bars_slide_checkbox');
+			if (b.checked == true) {
+				a.style.cssText = 'opacity: 1; top: 90px;';
+			} else {
+				a.style.cssText = '';
+			}
+		}
+		function search_placeholder() {
+			document.getElementById('search').placeholder = "";
+		}
+		function bg_img_blur() {
+			var a = document.getElementById('bg_img_blur_check');
+			var b = document.getElementById('body');
+			if (a.checked == true) {
+				b.style.cssText += "filter: blur(0px);";
+			} else {
+				b.style.cssText += "filter: blur(5px);";
+			}
+		}
+		function bg_img_add_slide_open() {
+			document.getElementById('bg_img_add_slide').style.cssText = 'top: 50%; box-shadow: 0 0 15px 100vh rgba(0,0,0,0.3);';
+		}
+		function bg_img_add_slide_close() {
+			document.getElementById('bg_img_add_slide').style.cssText = 'top: -50%; box-shadow: 0 0 15px 0vh rgba(0,0,0,0.3);';
+		}
+	</script>
+</head>
+<body>
+	<div id="body"></div>
+	<table bgcolor="" border="0" cellspacing="10" class="table" id="menus">
+		<tr>
+			<td><a id="menu_link" href=""><div id="menu1">Gmail</div></a></td>
+			<td><a id="menu_link" href=""><div id="menu2">Images</div></a></td>
+			<td>
+				<div>
+					<img src="bars.png" class="bars" id="bars">
+					<input type="checkbox" id="bars_slide_checkbox" onclick="bars_slide()" name="">
+				</div>
+			</td>
+			<td><a id="menu_link" style="color: #fff;" href=""><div class="sign_in" id="menu3">Sign In</div></a></td>
+		</tr>
+	</table>
+	<div class="bars_slide" id="bars_slide"></div>
+	<img src="google.png" class="icon" id="icon">
+	<div class="search_box">
+		<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search" onkeydown="if (event.keyCode == 13) { document.getElementById('search_icon').click(); } else { };">
+		<img src="mic.png" class="mic" id="mic">
+		<img src="search.png" class="search_icon" id="search_icon" onclick="search();">
+	</div>
+	<table class="tab_table" border="0">
+		<tr>
+			<td>
+				<a class="link_tab_link" id="link_tab_link_1" href="https://web.whatsapp.com/">
+					<div class="link_tab">
+						<div class="link_tab_circle_1" id="link_tab_circle_1"><img class="link_tab_img" src="Whatsapp.png"></div>
+						<p class="link_tab_para1" id="link_tab_para1">Whatsapp</p>
+					</div>
+				</a>
+			</td>
+			<td>
+				<a class="link_tab_link" id="link_tab_link_2" href="https://www.instagram.com/">
+					<div class="link_tab">						
+						<div class="link_tab_circle_2" id="link_tab_circle_2"><img class="link_tab_img" src="Instagram.png"></div>
+						<p class="link_tab_para2" id="link_tab_para2">Instagram</p>
+					</div>
+				</a>
+			</td>
+			<td>
+				<a class="link_tab_link" id="link_tab_link_3" onclick="document.getElementById('add_link').style.cssText = 'top: 50%; box-shadow: 0 0 15px 100vh rgba(0, 0, 0, 0.2);';">
+					<div class="link_tab">
+						<div class="link_tab_circle_3" id="link_tab_circle_3"><p class="link_tab_img_para" id="link_tab_img_para">+<img id="webpage_img" src=""></p></div>
+						<p class="link_tab_para3" id="link_tab_para3" onchange="set_name_position();">Add</p>
+					</div>
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div class="add_link" id="add_link">
+		<p class="add_link_name_para">Name</p>
+		<input type="text" class="add_link_name" id="add_link_name" name="" placeholder="Name">
+		<p class="add_link_url_para">URL</p>
+		<input type="text" class="add_link_url" id="add_link_url" name="" placeholder="URL" value="https://www.example.com/path">
+		<p class="add_link_img_para">Location of Image</p>
+		<input type="text" class="add_link_img_path" id="add_link_img_path" name="" placeholder="url or path">
+		<div class="add_link_btn" onclick="set_link(); document.getElementById('add_link').style.cssText = 'top: -250px; box-shadow: 0 0 0 #fff;';">Save</div>
+		<script type="text/javascript">
+			/*localStorage.removeItem('webpage_name');
+			localStorage.removeItem('webpage_url');
+			localStorage.removeItem('webpage_img_link');*/
+			/*document.getElementById('link_tab_link_3').href = localStorage.getItem('webpage_url');*/
+			localStorage.setItem('webpage_name','Add');
+			document.getElementById('link_tab_para3').innerHTML = localStorage.getItem('webpage_name');
+			if (localStorage.getItem('webpage_img_link') !== null) {
+				document.getElementById('webpage_img').style.cssText = 'opacity: 1;';
+				document.getElementById('webpage_img').src = localStorage.getItem('webpage_img_link');
+			} else {
+
+			}
+			if (localStorage.getItem('webpage_url') !== null) { 
+				document.getElementById('link_tab_link_3').href = localStorage.getItem('webpage_url');
+			} else {
+
+			}
+			function set_link() {
+				var a = document.getElementById('add_link_name').value;
+				if (a.length >= 1) {
+					localStorage.setItem('webpage_name', a);
+					document.getElementById('link_tab_para3').innerHTML = localStorage.getItem('webpage_name');
+				} else {
+					alert('Please Type A Name.');
+				}
+				var b = document.getElementById('add_link_url').value;
+				if (b.length >= 8) {
+					localStorage.setItem('webpage_url', b);
+					document.getElementById('link_tab_link_3').href = localStorage.getItem('webpage_url');
+				} else {
+					alert('Please type a valid URL.');
+				}
+				var c = document.getElementById('add_link_img_path');
+				if (c.value.length > 4) {
+					if (c.value.search('http') == 0 || c.value.search('file') == 0) {
+						localStorage.setItem('webpage_img_link', c.value);
+					} else {
+						var d = c.value.replaceAll(/\s/g,'%20').replaceAll(/\\/g,'/');
+						alert(d)
+						localStorage.setItem('webpage_img_link', 'file:///' + d);
+					}
+					
+					document.getElementById('webpage_img').style.cssText = 'opacity: 1;';
+					document.getElementById('webpage_img').src = localStorage.getItem('webpage_img_link');
+				} else {
+
+				}
+				document.getElementById('link_tab_link_3').onclick = '';
+				document.getElementById('link_tab_img_para').style.cssText = 'color: #fff;'
+			}
+		</script>
+		<div class="add_link_cancel_btn" onclick="document.getElementById('add_link').style.cssText = 'top: -250px; box-shadow: 0 0 0 #fff;';">Cancel</div>
+	</div>
+	<div class="custom" id="custom">Customize Chrome</div>
+	<input type="checkbox" class="custom_check" id="custom_check" onclick="custom_slide()" name="">
+	<div class="custom_slide" id="custom_slide">
+		<div class="close" onclick="document.getElementById('custom_check').checked = false;custom_slide()">
+			<div class="close1"></div>
+			<div class="close2"></div>
+			<div class="close3"></div>
+		</div>
+		<div class="bgimg">
+			<div class="bgimg_head">Change Background Image</div>
+			<div class="bg_imgs" border="1">
+				<div class="blank_img" id="blank_img" onclick=""></div>
+				<img class="bg_img bg_img1" id="bg_img1" src="78888804_p0.png">
+				<img class="bg_img bg_img2" id="bg_img2" src="85218024_p0.png">
+				<br>
+				<img class="bg_img bg_img4" id="bg_img4" src="IMG_20210515_194839.png">
+				<img class="bg_img bg_img5" id="bg_img5" src="IMG_20210515_194852.png">
+				<div class="bg_img bg_img_add" id="bg_img_add" onclick="bg_img_add_slide_open()"><b class="bg_img_add_icon">+</b></div>
+			</div>
+		</div>
+		<div id="bg_img_blur">
+			<div class="bgimg_blur_head">On or Off Background Image <br>Blurety</div>
+			<input type="checkbox" id="bg_img_blur_check" name="" onclick="bg_img_blur();">
+		</div>
+		<div class="del_link" id="del_link">Delete Shortcut</div>
+	</div>
+	<div class="bg_img_add_slide" id="bg_img_add_slide">
+		<p class="bg_img_add_slide_para">Type Image Path or URL</p>
+		<input type="text" class="bg_img_src" id="bg_img_src" name="">
+		<div class="bg_img_add_btn" id="bg_img_add_btn" onclick="set_bg_img();bg_img_add_slide_close()">Save</div>
+		<div class="bg_img_add_cancel_btn" id="bg_img_add_cancel_btn" onclick="bg_img_add_slide_close()">Cancel</div>
+	</div>
+	<script type="text/javascript">
+		document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
+		document.getElementById('bg_img_src').value = localStorage.getItem('bg_img');
+		document.getElementById('menu1').style.cssText = 'color:' + localStorage.getItem('text1_color') + ';';
+		document.getElementById('menu2').style.cssText = 'color:' + localStorage.getItem('text2_color') + ';';
+		function set_bg_img() {
+			var a = document.getElementById('bg_img_src');
+			if (a.value.search('http') == 0 || a.value.search('file') == 0) {
+				var b = a.value;
+				localStorage.setItem('bg_img',b);
+			} else {
+				var b = a.value.replaceAll(/\s/g,'%20').replaceAll(/\\/g,'/');
+				localStorage.setItem('bg_img', 'file:///' + b);
+			}
+			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
+			document.getElementById('bg_img_src').value = localStorage.getItem('bg_img');
+		}
+		document.querySelector('#blank_img').addEventListener('click', function (){
+			/*document.getElementById('body').classList.toggle('dgb');*/
+			localStorage.setItem('bg_img', '');
+			localStorage.setItem('text1_color', '#000');
+			localStorage.setItem('text2_color', '#000');
+			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + ');';
+			document.getElementById('menu1').style.cssText = 'color:' + localStorage.getItem('text1_color') + ';';
+			document.getElementById('menu2').style.cssText = 'color:' + localStorage.getItem('text2_color') + ';';
+			document.getElementById('search').style.cssText = 'box-shadow: 1px 1px 7px rgba(0,0,0,0.2);';
+			bg_img_blur();
+		})
+		document.querySelector('#bg_img1').addEventListener('click', function (){
+			localStorage.setItem('bg_img', '78888804_p0.png');
+			localStorage.setItem('text1_color', '#fff');
+			localStorage.setItem('text2_color', '#fff');
+			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
+			document.getElementById('menu1').style.cssText = 'color:' + localStorage.getItem('text1_color') + ';';
+			document.getElementById('menu2').style.cssText = 'color:' + localStorage.getItem('text2_color') + ';';
+			document.getElementById('search').style.cssText = 'box-shadow: 0 0 15px 100vh rgba(0,0,0,0.1);';
+			bg_img_blur();
+		})
+		document.querySelector('#bg_img2').addEventListener('click', function (){
+			localStorage.setItem('bg_img', '85218024_p0.png');
+			localStorage.setItem('text1_color', '#000');
+			localStorage.setItem('text2_color', '#fff');
+			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
+			document.getElementById('menu1').style.cssText = 'color:' + localStorage.getItem('text1_color') + ';';
+			document.getElementById('menu2').style.cssText = 'color:' + localStorage.getItem('text2_color') + ';';
+			document.getElementById('search').style.cssText = 'box-shadow: 0 0 15px 100vh rgba(0,0,0,0.1);';
+			bg_img_blur();
+		})
+		document.querySelector('#bg_img4').addEventListener('click', function (){
+			localStorage.setItem('bg_img', 'IMG_20210515_194839.png');
+			localStorage.setItem('text1_color', '#fff');
+			localStorage.setItem('text2_color', '#fff');
+			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
+			document.getElementById('menu1').style.cssText = 'color:' + localStorage.getItem('text1_color') + ';';
+			document.getElementById('menu2').style.cssText = 'color:' + localStorage.getItem('text2_color') + ';';
+			document.getElementById('search').style.cssText = 'box-shadow: 0 0 15px 100vh rgba(0,0,0,0.1);';
+			bg_img_blur();
+		})
+		document.querySelector('#bg_img5').addEventListener('click', function (){
+			localStorage.setItem('bg_img', 'IMG_20210515_194852.png');
+			localStorage.setItem('text1_color', '#fff');
+			localStorage.setItem('text2_color', '#fff');
+			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
+			document.getElementById('menu1').style.cssText = 'color:' + localStorage.getItem('text1_color') + ';';
+			document.getElementById('menu2').style.cssText = 'color:' + localStorage.getItem('text2_color') + ';';
+			document.getElementById('search').style.cssText = 'box-shadow: 0 0 15px 100vh rgba(0,0,0,0.1);';
+			bg_img_blur();
+		})
+		document.querySelector('#del_link').addEventListener('click', function (){
+			localStorage.setItem('webpage_name','Add');
+			localStorage.removeItem('webpage_url');
+			localStorage.removeItem('webpage_img_link');
+			document.getElementById('link_tab_para3').innerHTML = 'Add';
+			document.getElementById('link_tab_link_3').href = '';
+			document.getElementById('webpage_img').style.cssText = 'opacity: 0;';
+			document.getElementById('webpage_img').src = '';
+			document.getElementById('link_tab_img_para').style.cssText = 'color: #000;';
+			window.location.replace("Google2.html");
+		})
+		/*let addBtn = document.querySelector('#link_tab_link_3')
+		addBtn.addEventListener('click',function (){
+			let name= prompt('Name of page')
+			let url= prompt('URL')
+			let page=JSON.stringify({'name': name, 'url': url})
+			let c=localStorage.length
+			window.localStorage.setItem(`${c}+1` , page)
+		})*/
+	</script>
+</body>
+</html>
