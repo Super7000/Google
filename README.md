@@ -1,2 +1,2 @@
 # Google
-Google3.html is the latest version.
+index.html is the latest version.
