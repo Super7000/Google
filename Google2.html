@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Google</title>
-	<link rel="icon" type="image/png" href="88775396_p0.png">
+	<link rel="icon" type="image/png" href="Icons/google.png">
 	<style type="text/css">
 		#body
 		{
@@ -648,7 +648,7 @@
 			<td><a id="menu_link" href=""><div id="menu2">Images</div></a></td>
 			<td>
 				<div>
-					<img src="bars.png" class="bars" id="bars">
+					<img src="Icons/bars.png" class="bars" id="bars">
 					<input type="checkbox" id="bars_slide_checkbox" onclick="bars_slide()" name="">
 				</div>
 			</td>
@@ -656,18 +656,18 @@
 		</tr>
 	</table>
 	<div class="bars_slide" id="bars_slide"></div>
-	<img src="google.png" class="icon" id="icon">
+	<img src="Icons/google.png" class="icon" id="icon">
 	<div class="search_box">
 		<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search" onkeydown="if (event.keyCode == 13) { document.getElementById('search_icon').click(); } else { };">
-		<img src="mic.png" class="mic" id="mic">
-		<img src="search.png" class="search_icon" id="search_icon" onclick="search();">
+		<img src="Icons/mic.png" class="mic" id="mic">
+		<img src="Icons/search.png" class="search_icon" id="search_icon" onclick="search();">
 	</div>
 	<table class="tab_table" border="0">
 		<tr>
 			<td>
 				<a class="link_tab_link" id="link_tab_link_1" href="https://web.whatsapp.com/">
 					<div class="link_tab">
-						<div class="link_tab_circle_1" id="link_tab_circle_1"><img class="link_tab_img" src="Whatsapp.png"></div>
+						<div class="link_tab_circle_1" id="link_tab_circle_1"><img class="link_tab_img" src="Icons/Whatsapp.png"></div>
 						<p class="link_tab_para1" id="link_tab_para1">Whatsapp</p>
 					</div>
 				</a>
@@ -675,7 +675,7 @@
 			<td>
 				<a class="link_tab_link" id="link_tab_link_2" href="https://www.instagram.com/">
 					<div class="link_tab">						
-						<div class="link_tab_circle_2" id="link_tab_circle_2"><img class="link_tab_img" src="Instagram.png"></div>
+						<div class="link_tab_circle_2" id="link_tab_circle_2"><img class="link_tab_img" src="Icons/Instagram.png"></div>
 						<p class="link_tab_para2" id="link_tab_para2">Instagram</p>
 					</div>
 				</a>
@@ -764,11 +764,11 @@
 			<div class="bgimg_head">Change Background Image</div>
 			<div class="bg_imgs" border="1">
 				<div class="blank_img" id="blank_img" onclick=""></div>
-				<img class="bg_img bg_img1" id="bg_img1" src="78888804_p0.png">
-				<img class="bg_img bg_img2" id="bg_img2" src="85218024_p0.png">
+				<img class="bg_img bg_img1" id="bg_img1" src="Images/78888804_p0.png">
+				<img class="bg_img bg_img2" id="bg_img2" src="Images/85218024_p0.png">
 				<br>
-				<img class="bg_img bg_img4" id="bg_img4" src="IMG_20210515_194839.png">
-				<img class="bg_img bg_img5" id="bg_img5" src="IMG_20210515_194852.png">
+				<img class="bg_img bg_img4" id="bg_img4" src="Images/IMG_20210515_194839.png">
+				<img class="bg_img bg_img5" id="bg_img5" src="Images/IMG_20210515_194852.png">
 				<div class="bg_img bg_img_add" id="bg_img_add" onclick="bg_img_add_slide_open()"><b class="bg_img_add_icon">+</b></div>
 			</div>
 		</div>
@@ -813,7 +813,7 @@
 			bg_img_blur();
 		})
 		document.querySelector('#bg_img1').addEventListener('click', function (){
-			localStorage.setItem('bg_img', '78888804_p0.png');
+			localStorage.setItem('bg_img', 'Images/78888804_p0.png');
 			localStorage.setItem('text1_color', '#fff');
 			localStorage.setItem('text2_color', '#fff');
 			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
@@ -823,7 +823,7 @@
 			bg_img_blur();
 		})
 		document.querySelector('#bg_img2').addEventListener('click', function (){
-			localStorage.setItem('bg_img', '85218024_p0.png');
+			localStorage.setItem('bg_img', 'Images/85218024_p0.png');
 			localStorage.setItem('text1_color', '#000');
 			localStorage.setItem('text2_color', '#fff');
 			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
@@ -833,7 +833,7 @@
 			bg_img_blur();
 		})
 		document.querySelector('#bg_img4').addEventListener('click', function (){
-			localStorage.setItem('bg_img', 'IMG_20210515_194839.png');
+			localStorage.setItem('bg_img', 'Images/IMG_20210515_194839.png');
 			localStorage.setItem('text1_color', '#fff');
 			localStorage.setItem('text2_color', '#fff');
 			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';
@@ -843,7 +843,7 @@
 			bg_img_blur();
 		})
 		document.querySelector('#bg_img5').addEventListener('click', function (){
-			localStorage.setItem('bg_img', 'IMG_20210515_194852.png');
+			localStorage.setItem('bg_img', 'Images/IMG_20210515_194852.png');
 			localStorage.setItem('text1_color', '#fff');
 			localStorage.setItem('text2_color', '#fff');
 			document.getElementById('body').style.cssText = 'background: url(' + localStorage.getItem('bg_img') + '); background-size: cover; background-attachment: fixed;';

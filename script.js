@@ -45,7 +45,7 @@ function load_bookmarks()
     var local = localStorage.getItem("bookmarks");
     var addst = `<a class="link_tab_link add_bm_btn">
         <div class="link_tab">
-            <div class="link_tab_circle"><img class="link_tab_img" src="plus.png"></div>
+            <div class="link_tab_circle"><img class="link_tab_img" src="Icons/plus.png"></div>
             <p class="link_tab_para">Add</p>
         </div>
     </a>`;
@@ -70,8 +70,8 @@ function load_bookmarks()
                 name = arr[i+1];
             }
             var string = `<div class="link_tab_link">            
-                <div class="edit_delete edit_bm" data-index="${i}"><img src="edit.png"></div>
-                <div class="edit_delete delete_bm" data-index="${i}"><img src="delete.svg"></div>
+                <div class="edit_delete edit_bm" data-index="${i}"><img src="Icons/edit.png"></div>
+                <div class="edit_delete delete_bm" data-index="${i}"><img src="Icons/delete.svg"></div>
                 <div class="link_tab links" data-link="${arr[i+2]}">
                     <div class="link_tab_circle">${img}</div>
                     <p class="link_tab_para" title="${arr[i+1]}">${name}</p>
