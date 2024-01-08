@@ -1,0 +1,67 @@
+.bookmarks {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, 0%);
+}
+
+.link_tab_link {
+    color: #000;
+    text-align: center;
+    height: 115px;
+}
+
+.link_tab {
+    width: 6em;
+    height: 7em;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.0);
+    position: relative;
+    top: -54px;
+    cursor: pointer;
+}
+
+.link_tab:hover {
+    background: rgba(255, 255, 255, 0.50);
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.link_tab_img {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+}
+
+.link_tab_circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.50);
+    position: relative;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.link_tab_circle p {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.link_tab_para {
+    font-size: 00.8em;
+    position: relative;
+    top: 20px;
+}

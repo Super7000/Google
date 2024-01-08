@@ -1,0 +1,91 @@
+body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    font-family: Verdana;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html {
+    --blur: 5px;
+    --back_clr: rgba(255, 255, 255, 0.7);
+    --text_clr: #000;
+}
+
+.bg_img_con {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter: blur(var(--blur));
+}
+
+.toolbar {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 19.5em;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    font-size: 0.9em;
+}
+
+.toolbar a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    margin-top: auto;
+    border-radius: 7px;
+}
+
+.toolbar a:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.toolbar .sign_in {
+    background: dodgerblue;
+    color: #fff;
+}
+
+.toolbar .sign_in:hover {
+    background: rgba(30, 144, 255, 0.8);
+}
+
+.toolbar a img {
+    position: relative;
+    top: 0;
+    padding: 12px 0 10px 0;
+}
+
+.logo {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom_btn {
+    font-size: 0.9em;
+    color: dodgerblue;
+    margin: auto;
+    text-align: center;
+    width: 12em;
+    height: 3em;
+    border-radius: 3.6em;
+    box-shadow: 0 2px 1em rgba(0, 0, 0, 0.30);
+    position: absolute;
+    bottom: 1.6em;
+    right: 1.6em;
+    background: #fff;
+    cursor: pointer;
+    z-index: 3;
+}

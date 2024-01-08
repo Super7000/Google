@@ -1,0 +1,49 @@
+
+.search_box {
+    min-width: 23.5em;
+    width: 38%;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 3.6em;
+    height: 2.7em;
+    background: #fff;
+}
+
+.search {
+    width: 84%;
+    height: 2em;
+    padding: 7px 7px;
+    font-family: verdana;
+    font-size: 0.9em;
+    outline: none;
+    border: none;
+    display: block;
+    margin: auto;
+}
+
+.search::placeholder {
+    font-size: 1.1em;
+    font-family: Myanmar Text;
+    color: #000;
+}
+
+.mic {
+    position: absolute;
+    width: 0.8em;
+    right: 0.9em;
+    top: 50%;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+}
+
+.search_icon {
+    position: absolute;
+    width: 16px;
+    left: 17px;
+    top: 50%;
+    transform: translate(-0%, -50%);
+    cursor: pointer;
+}

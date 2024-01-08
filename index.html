@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Google</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/search-bar.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/bookmark.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/add-bookmark-popup-container.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/custom-tab.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/add-bg-img-popup-container.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/sign-in-popup-container.css'>
+
 </head>
+
 <body>
-    <div  class="bg_img_con"></div>
-    <div class="toolbar">
-        <a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl">
-            <p>Gmail</p>
-        </a>
-        <a href="https://www.google.co.in/imghp?hl=en&tab=ri&authuser=0&ogbl">
-            <p>Images</p>
-        </a>
-        <a href="#">
-            <img src="Icons/bars.png">
-        </a>
-        <a href="#" class="sign_in">
-            <p>Sign In</p>
-        </a>
-        </div>
-    </div>    
+	<div class="bg_img_con"></div>
+	<div class="toolbar">
+		<a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl">
+			<p>Gmail</p>
+		</a>
+		<a href="https://www.google.co.in/imghp?hl=en&tab=ri&authuser=0&ogbl">
+			<p>Images</p>
+		</a>
+		<a href="#">
+			<img src="Icons/bars.png">
+		</a>
+		<a href="#" class="sign_in">
+			<p>Sign In</p>
+		</a>
+	</div>
+	</div>
 	<img src="Icons/google.png" class="logo">
-    <div class="search_box">
-		<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search" onkeydown="if (event.keyCode == 13) {search(this.value); this.value= ''}">
+	<div class="search_box">
+		<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search"
+			onkeydown="if (event.keyCode == 13) {search(this.value); this.value= ''}">
 		<img src="Icons/mic.png" class="mic">
-		<img src="Icons/search.png" class="search_icon" id="search_icon" onclick="search(document.getElementById('search').value)">
-	</div>    
-    <div class="bookmarks"></div>
+		<img src="Icons/search.png" class="search_icon" id="search_icon"
+			onclick="search(document.getElementById('search').value)">
+	</div>
+	<div class="bookmarks"></div>
 	<form class="add_bookmark_con">
 		<p class="add_bookmark_con_heading">Add Sortcut</p>
 		<div class="name_div">
@@ -50,17 +61,22 @@
 			<input type="submit" value="Save" class="save_sortcut" data-click_func="save_bm_check()">
 		</div>
 	</form>
-	<div class="custom_btn"><p>Customize Chrome</p></div>
-    <div class="custom_tab">
+	<div class="custom_btn">
+		<p>Customize Chrome</p>
+	</div>
+	<div class="custom_tab">
 		<div class="bgimg_section">
 			<div class="heading">Change Background Image</div>
 			<div class="bg_imgs">
-				<div class="blank_img bg_img" onclick="localStorage.setItem('bg_img',''); document.querySelector('.bg_img_con').style.cssText = `background: url('')`"></div>
+				<div class="blank_img bg_img"
+					onclick="localStorage.setItem('bg_img',''); document.querySelector('.bg_img_con').style.cssText = `background: url('')`">
+				</div>
 				<img class="bg_img bg" src="Images/78888804_p0.png">
 				<img class="bg_img bg" src="Images/85218024_p0.png">
 				<img class="bg_img bg" src="Images/Screenshot (37).png">
 				<img class="bg_img bg" src="Images/Screenshot (42).png">
-				<div class="bg_img bg_img_add"><img style="width: 20px; position: relative; top: 35%;" src="Icons/plus.png"></div>
+				<div class="bg_img bg_img_add"><img style="width: 20px; position: relative; top: 35%;"
+						src="Icons/plus.png"></div>
 			</div>
 		</div>
 		<div class="bg_img_blur">
@@ -81,14 +97,15 @@
 			</div>
 		</div>
 		<div class="del_btn_con">
-            <input type="button" value="Clear All Data" onclick="localStorage.clear(); window.location.reload()" title="Bookmarks, Blur, Background Image .etc">
-        </div>
+			<input type="button" value="Clear All Data" onclick="localStorage.clear(); window.location.reload()"
+				title="Bookmarks, Blur, Background Image .etc">
+		</div>
 	</div>
 	<form class="add_bg_img_con">
 		<p>Add Background Image</p>
 		<div>
 			<p>Image Path</p>
-			<input type="text" class="bg_img_path" required> 
+			<input type="text" class="bg_img_path" required>
 		</div>
 		<div>
 			<input type="button" value="Cancel" class="cancel_bg_img_btn">
@@ -110,6 +127,8 @@
 			<input type="submit" value="Sign In" class="sign_in_dt_submit">
 		</div>
 	</form>
-<script  src="script.js"></script>
+	<script src="script/search.js"></script>
+	<script src="script/script.js" defer></script>
 </body>
+
 </html>
