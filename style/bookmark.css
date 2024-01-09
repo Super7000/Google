@@ -65,3 +65,37 @@
     position: relative;
     top: 20px;
 }
+
+.edit_delete {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    position: relative;
+    left: 3px;
+    top: 3px;
+    padding: 5px 5px 7px 7px;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.edit_delete:hover {
+    background: rgba(0, 0, 0, 0.10);
+    opacity: 1;
+}
+
+.edit_delete img {
+    width: 100%;
+    height: 100%;
+}
+
+.delete_bm {
+    top: -24px;
+    left: 72%;
+    padding: 5px 5px 7px 5px;
+}
+
+.add_bm_btn .link_tab {
+    top: 0;
+}

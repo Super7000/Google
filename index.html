@@ -9,15 +9,15 @@
 	<link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/search-bar.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/bookmark.css'>
-	<link rel='stylesheet' type='text/css' media='screen' href='style/add-bookmark-popup-container.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/popup.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/custom-tab.css'>
-	<link rel='stylesheet' type='text/css' media='screen' href='style/add-bg-img-popup-container.css'>
-	<link rel='stylesheet' type='text/css' media='screen' href='style/sign-in-popup-container.css'>
 
 </head>
 
 <body>
 	<div class="bg_img_con"></div>
+
+
 	<div class="toolbar">
 		<a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl">
 			<p>Gmail</p>
@@ -34,36 +34,54 @@
 	</div>
 	</div>
 	<img src="Icons/google.png" class="logo">
+
+
 	<div class="search_box">
-		<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search"
-			onkeydown="if (event.keyCode == 13) {search(this.value); this.value= ''}">
-		<img src="Icons/mic.png" class="mic">
-		<img src="Icons/search.png" class="search_icon" id="search_icon"
-			onclick="search(document.getElementById('search').value)">
-	</div>
-	<div class="bookmarks"></div>
-	<form class="add_bookmark_con">
-		<p class="add_bookmark_con_heading">Add Sortcut</p>
-		<div class="name_div">
-			<p>Name</p>
-			<input type="text" class="add_bookmark_name" required>
-		</div>
-		<div class="url_div">
-			<p>URL</p>
-			<input type="text" class="add_bookmark_url" required>
-		</div>
-		<div class="img_div">
-			<p>Icon Path</p>
-			<input type="text" class="add_bookmark_img_path">
+		<div class="search-icon-con">
+			<img src="Icons/search.png" class="search_icon" id="search_icon"
+				onclick="search(document.getElementById('search').value)">
 		</div>
 		<div>
-			<input type="button" value="Cancel" class="cancel_sortcut_btn">
-			<input type="submit" value="Save" class="save_sortcut" data-click_func="save_bm_check()">
+			<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search"
+				onkeydown="if (event.keyCode == 13) {search(this.value); this.value= ''}">
+		</div>
+		<div class="mic-icon-con">
+			<img src="Icons/mic.png" class="mic">
+		</div>
+	</div>
+
+
+	<div class="bookmarks"></div>
+
+
+	<form class="add_bookmark_con popup-container">
+		<p class="popup-name">Add Sortcut</p>
+		<div class="section">
+			<p>Name</p>
+			<input type="text" class="add_bookmark_name text-box" required>
+		</div>
+		<div class="section">
+			<p>URL</p>
+			<input type="text" class="add_bookmark_url text-box" required>
+		</div>
+		<div class="section">
+			<p>Icon Path</p>
+			<input type="text" class="add_bookmark_img_path text-box">
+		</div>
+		<div class="section btn-container">
+			<div>
+				<input type="button" value="Cancel" class="cancel_sortcut_btn btn blue-border">
+				<input type="submit" value="Save" class="save_sortcut btn blue-bg" data-click_func="save_bm_check()">
+			</div>
 		</div>
 	</form>
+
+
 	<div class="custom_btn">
 		<p>Customize Chrome</p>
 	</div>
+
+
 	<div class="custom_tab">
 		<div class="bgimg_section">
 			<div class="heading">Change Background Image</div>
@@ -101,32 +119,42 @@
 				title="Bookmarks, Blur, Background Image .etc">
 		</div>
 	</div>
-	<form class="add_bg_img_con">
-		<p>Add Background Image</p>
-		<div>
+
+
+	<form class="add_bg_img_con popup-container">
+		<p class="popup-name">Add Background Image</p>
+		<div class="section">
 			<p>Image Path</p>
-			<input type="text" class="bg_img_path" required>
+			<input type="text" class="bg_img_path text-box" required>
 		</div>
-		<div>
-			<input type="button" value="Cancel" class="cancel_bg_img_btn">
-			<input type="submit" class="change_bg_img" value="Done">
+		<div class="section btn-container">
+			<div>
+				<input type="button" value="Cancel" class="cancel_bg_img_btn btn blue-border">
+				<input type="submit" class="change_bg_img btn blue-bg" value="Done">
+			</div>
 		</div>
 	</form>
-	<form class="sign_in_con" method="post" action="">
-		<p class="sign_in_con_heading">Sign In</p>
-		<div class="sign_in_name_div">
+
+
+	<form class="sign_in_con popup-container" method="post" action="">
+		<p class="popup-name">Sign In</p>
+		<div class="section">
 			<p>Name</p>
-			<input type="text" class="sign_in_name" required>
+			<input type="text" class="sign_in_name text-box" required>
 		</div>
-		<div class="sign_in_pass_div">
+		<div class="section">
 			<p>Password</p>
-			<input type="text" class="sign_in_url" required>
+			<input type="text" class="sign_in_url text-box" required>
 		</div>
-		<div>
-			<input type="button" value="Cancel" class="cancel_sign_in_btn">
-			<input type="submit" value="Sign In" class="sign_in_dt_submit">
+		<div class="section btn-container">
+			<div>
+				<input type="button" value="Cancel" class="cancel_sign_in_btn btn blue-border">
+				<input type="submit" value="Sign In" class="sign_in_dt_submit btn blue-bg">
+			</div>
 		</div>
 	</form>
+
+
 	<script src="script/search.js"></script>
 	<script src="script/script.js" defer></script>
 </body>
