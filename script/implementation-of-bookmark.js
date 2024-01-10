@@ -53,7 +53,7 @@ function addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathVa
         index = 0;
     }
     let bookmarkImgHtmlAndName = checkIconPathAndName(bookmarkIconPathValue, bookmarkNameValue);
-    let bookmarkString = `<div class="link_tab_link">            
+    let bookmarkString = `<div class="link_tab_link">
                 <div class="edit_delete edit_bm" data-index="${index}"><img src="Icons/edit.png"></div>
                 <div class="edit_delete delete_bm" data-index="${index}"><img src="Icons/delete.svg"></div>
                 <div class="link_tab links" data-link="${bookmarkURLValue}">
@@ -79,13 +79,15 @@ function addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathVa
 
 function clickListenerForABookmark(index) {
     let bookmark = document.querySelectorAll(".link_tab_link")[index];
-    bookmark.addEventListener("click", () => {
-        search(bookmark.querySelector(".links").dataset.link);
+    let link_tab = bookmark.querySelector(".link_tab");
+    link_tab.addEventListener("click", () => {
+        search(link_tab.dataset.link);
     })
 
     // Delete Button Click Listener of The Bookmark
-    bookmark.querySelector(".delete_bm").addEventListener("click", () => {
-        bookmarks.deleteBookmark(parseInt(this.dataset.index));
+    let deleteBookmark = bookmark.querySelector(".delete_bm");
+    deleteBookmark.addEventListener("click", () => {
+        bookmarks.deleteBookmark(parseInt(deleteBookmark.dataset.index));
         bookmark.remove();
     })
 
