@@ -51,10 +51,17 @@
 	</div>
 
 
-	<div class="bookmarks"></div>
+	<div class="bookmarks">
+		<div class="link_tab_link add_bm_btn">
+			<div class="link_tab">
+				<div class="link_tab_circle"><img class="link_tab_img" src="Icons/plus.png"></div>
+				<p class="link_tab_para">Add</p>
+			</div>
+		</div>
+	</div>
 
 
-	<form class="add_bookmark_con popup-container">
+	<div class="add_bookmark_con popup-container">
 		<p class="popup-name">Add Sortcut</p>
 		<div class="section">
 			<p>Name</p>
@@ -71,10 +78,10 @@
 		<div class="section btn-container">
 			<div>
 				<input type="button" value="Cancel" class="cancel_sortcut_btn btn blue-border">
-				<input type="submit" value="Save" class="save_sortcut btn blue-bg" data-click_func="save_bm_check()">
+				<input type="submit" value="Save" class="save_sortcut btn blue-bg">
 			</div>
 		</div>
-	</form>
+	</div>
 
 
 	<div class="custom_btn">
@@ -121,7 +128,7 @@
 	</div>
 
 
-	<form class="add_bg_img_con popup-container">
+	<div class="add_bg_img_con popup-container">
 		<p class="popup-name">Add Background Image</p>
 		<div class="section">
 			<p>Image Path</p>
@@ -133,10 +140,10 @@
 				<input type="submit" class="change_bg_img btn blue-bg" value="Done">
 			</div>
 		</div>
-	</form>
+	</div>
 
 
-	<form class="sign_in_con popup-container" method="post" action="">
+	<div class="sign_in_con popup-container" method="post" action="">
 		<p class="popup-name">Sign In</p>
 		<div class="section">
 			<p>Name</p>
@@ -152,11 +159,12 @@
 				<input type="submit" value="Sign In" class="sign_in_dt_submit btn blue-bg">
 			</div>
 		</div>
-	</form>
+	</div>
 
 
 	<script src="script/search.js"></script>
-	<script src="script/script.js" defer></script>
+	<script src="script/script.js" type="module" defer></script>
+	<script src="script/implementation-of-bookmark.js" type="module" defer></script>
 </body>
 
 </html>

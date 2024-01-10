@@ -99,3 +99,7 @@
 .add_bm_btn .link_tab {
     top: 0;
 }
+
+.add_bm_btn.hide {
+    display: none;
+}
