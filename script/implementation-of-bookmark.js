@@ -1,4 +1,3 @@
-import { Bookmarks } from "./bookmarks.js";
 let bookmarks = new Bookmarks();
 
 function showBookmarks() {

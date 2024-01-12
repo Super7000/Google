@@ -98,19 +98,19 @@
 				</div>
 				<img class="bg_img bg" src="Images/78888804_p0.png">
 				<img class="bg_img bg" src="Images/85218024_p0.png">
-				<img class="bg_img bg" src="Images/Screenshot (37).png">
-				<img class="bg_img bg" src="Images/Screenshot (42).png">
+				<img class="bg_img bg" src="Images/Screenshot 37.png">
+				<img class="bg_img bg" src="Images/Screenshot 42.png">
 				<div class="bg_img bg_img_add"><img style="width: 20px; position: relative; top: 35%;"
 						src="Icons/plus.png"></div>
 			</div>
 		</div>
 		<div class="bg_img_blur">
 			<div class="heading">On or Off Background Image Blurety</div>
-			<input type="range" min="0" max="30" class="bg_img_blur_check" name="">
+			<input type="range" min="0" max="30" class="bg_img_blur_input custom-tab-range-input" name="">
 		</div>
 		<div class="bg_img_blur">
 			<div class="heading">Transparancy</div>
-			<input type="range" min="0" max="1" step="0.1" class="bg_img_blur_check bg_transparancy_check" name="">
+			<input type="range" min="0" max="1" step="0.1" class="custom-tab-range-input bg_transparancy_input" name="">
 		</div>
 		<div class="text_clr_con">
 			<div class="text_clrs">
@@ -132,7 +132,7 @@
 		<p class="popup-name">Add Background Image</p>
 		<div class="section">
 			<p>Image Path</p>
-			<input type="text" class="bg_img_path text-box" required>
+			<input type="file" class="bg_img_path text-box" accept="image/*" required>
 		</div>
 		<div class="section btn-container">
 			<div>
@@ -163,8 +163,10 @@
 
 
 	<script src="script/search.js"></script>
-	<script src="script/script.js" type="module" defer></script>
-	<script src="script/implementation-of-bookmark.js" type="module" defer></script>
+	<script src="script/settings.js"></script>
+	<script src="script/script.js" defer></script>
+	<script src="script/bookmarks.js"></script>
+	<script src="script/implementation-of-bookmark.js" defer></script>
 </body>
 
 </html>

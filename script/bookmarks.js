@@ -1,4 +1,4 @@
-export class Bookmarks {
+class Bookmarks {
     constructor() {
         this.bookmarksList = [];
     }
@@ -67,6 +67,7 @@ export class Bookmarks {
         } catch (err) {
             console.log("An error occured when deleting bookmarks");
         }
+        this.bookmarksList = [];
     }
 
     isEmpty() {
