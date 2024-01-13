@@ -37,7 +37,7 @@ class Settings {
 
     has(name) {
         this.retrieveSettings();
-        if(this.settings[name] == null || this.settings[name] == "") {
+        if (this.settings[name] == null || this.settings[name] == "") {
             return false;
         }
         return true;
@@ -45,5 +45,16 @@ class Settings {
 
     get(name) {
         return this.retrieveSettings[name];
+    }
+
+    deleteSettings() {
+        localStorage.removeItem("settings");
+        this.retrieveSettings();
+    }
+
+    deleteSetting(name) {
+        this.retrieveSettings();
+        delete this.settings[name];
+        this.storeSettings();
     }
 }

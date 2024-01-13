@@ -1,4 +1,4 @@
-let bookmarks = new Bookmarks();
+let bookmarks = new Bookmarks(); // from bookmarks.js
 
 function showBookmarks() {
     let bookmarksList = bookmarks.retrieveBookmarks();
@@ -69,7 +69,7 @@ function addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathVa
     }
     document.querySelector(".bookmarks").style.cssText = `grid-template-columns: repeat(${repeatCount},auto);`
     clickListenerForABookmark(index);
-    if(bookmarks.getLength() < 10) {
+    if (bookmarks.getLength() < 10) {
         document.querySelector(".add_bm_btn").classList.remove("hide");
     } else {
         document.querySelector(".add_bm_btn").classList.add("hide");

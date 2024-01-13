@@ -93,8 +93,7 @@
 		<div class="bgimg_section">
 			<div class="heading">Change Background Image</div>
 			<div class="bg_imgs">
-				<div class="blank_img bg_img"
-					onclick="localStorage.setItem('bg_img',''); document.querySelector('.bg_img_con').style.cssText = `background: url('')`">
+				<div class="blank_img bg_img">
 				</div>
 				<img class="bg_img bg" src="Images/78888804_p0.png">
 				<img class="bg_img bg" src="Images/85218024_p0.png">
@@ -121,9 +120,11 @@
 				<div class="text_clr"></div>
 			</div>
 		</div>
+		<div class="del_bm_btn_con">
+			<input type="button" value="Clear All Bookmarks" title="Bookmarks">
+		</div>
 		<div class="del_btn_con">
-			<input type="button" value="Clear All Data" onclick="localStorage.clear(); window.location.reload()"
-				title="Bookmarks, Blur, Background Image .etc">
+			<input type="button" value="Clear All Data" title="Bookmarks, Blur, Background Image .etc">
 		</div>
 	</div>
 
@@ -131,8 +132,12 @@
 	<div class="add_bg_img_con popup-container">
 		<p class="popup-name">Add Background Image</p>
 		<div class="section">
-			<p>Image Path</p>
-			<input type="file" class="bg_img_path text-box" accept="image/*" required>
+			<p>Select a Image</p>
+			<div class="file_input_container">
+				<input type="file" class="bg_img_path file_input" id="bg_img_path" accept="image/*" required>
+				<div class="file_label">Click or Drag & Drop a Image</div>
+				<div class="bg_img_preview"></div>
+			</div>
 		</div>
 		<div class="section btn-container">
 			<div>
@@ -164,9 +169,9 @@
 
 	<script src="script/search.js"></script>
 	<script src="script/settings.js"></script>
-	<script src="script/script.js" defer></script>
 	<script src="script/bookmarks.js"></script>
 	<script src="script/implementation-of-bookmark.js" defer></script>
+	<script src="script/script.js" defer></script>
 </body>
 
 </html>

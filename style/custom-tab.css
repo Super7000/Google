@@ -29,16 +29,15 @@
 /* .custom_tab div{
     border: 1px solid #000;
 } */
-.del_btn_con input {
+.del_btn_con input, .del_bm_btn_con input {
     background: rgba(30, 144, 255, 0.8);
     padding: 8px 11px;
-    width: 135px;
     border: none;
-    border-radius: 7px;
+    border-radius: 3px;
     color: #fff;
     position: relative;
     left: 20px;
-    top: 20px;
+    top: 0px;
     cursor: pointer;
     font-size: 18px;
 }

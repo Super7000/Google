@@ -7,8 +7,6 @@
     top: -50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    display: grid;
-    grid-auto-flow: row;
     background: var(--back_clr);
     backdrop-filter: blur(10px);
     z-index: 5;
@@ -72,6 +70,38 @@
     color: dodgerblue;
     background: #fff;
     border: 2px solid dodgerblue;
+}
+
+.file_input_container {
+    max-height: 20vh;
+}
+
+.file_input {
+    height: 20vh;
+    width: 100%;
+    background-color: red;
+    opacity: 0;
+}
+
+.file_label {
+    position: relative;
+    top: -20vh;
+    width: 100%;
+    background: rgba(30, 144, 255, 0.3);
+    color: #000;
+    border: 1px dashed #000;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    z-index: -1;
+}
+
+.bg_img_preview {
+    position: relative;
+    top: -40vh;
+    height: 20vh;
+    z-index: -2;
 }
 
 @media only screen and (max-width: 768px) {
