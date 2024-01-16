@@ -1,104 +1,81 @@
 .custom_tab {
     position: fixed;
     left: -50%;
-    top: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
     width: 27%;
+    min-width: 350px;
     height: 97vh;
     background: var(--back_clr);
     border-radius: 10px;
-    box-shadow: 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    display: grid;
-    grid-template-rows: auto auto auto auto auto auto auto;
     transition: 0.3s;
     z-index: 2;
-    scale: 0;
 }
 
 .custom_tab.active {
     left: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    scale: 1;
 }
 
-.bgimg_section {
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-
-/* .custom_tab div{
-    border: 1px solid #000;
-} */
-.del_btn_con input, .del_bm_btn_con input {
-    background: rgba(30, 144, 255, 0.8);
-    padding: 8px 11px;
-    border: none;
-    border-radius: 3px;
-    color: #fff;
-    position: relative;
-    left: 20px;
-    top: 0px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.bg_imgs {
-    position: relative;
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%, 0%);
+.custom_tab .main-container {
     width: 90%;
+    position: relative;
+    left: 5%;
+    top: 2.5%;
+}
+
+.custom_tab .main-container .heading {
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.custom_tab .main-container .heading.first {
+    margin-top: 0;
+}
+
+.bgimg_section .bg_imgs {
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 7px;
 }
 
-.custom_tab div .heading {
-    font-size: 1.2em;
-    position: relative;
-    top: 20px;
-    left: 20px;
-    width: 80%;
+.bg_imgs .bg_img {
+    width: 100%;
+    height: 4.7rem;
+    box-shadow: 0 0 0 1px rgb(0, 0, 0);
+    transition: 0.3s;
 }
 
-.bg_img {
-    width: 100%;
-    height: 4.7em;
-    transition: 0.2s;
-    box-shadow: 0 0 1px 1px #000;
-    text-align: center;
-    margin: auto;
+.bg_imgs .bg_img:hover {
+    box-shadow: 0 0 0 2px rgb(0, 0, 0);
+}
+
+.bg_img_add {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg_img_blur input, .bg_img_transparancy input {
+    height: 4px;
+    width: 90%;
     cursor: pointer;
 }
 
-.bg_img:hover {
-    box-shadow: 0 0 1px 2px #000;
+.del_bm_btn_con input, .del_btn_con input {
+    background: dodgerblue;
+    color: #fff;
+    border: none;
+    padding: 8px 11px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.blank_img {
-    background: #fff;
-}
-
-.blank_img:hover {
-    box-shadow: 0 0 1px 2px #000;
-}
-
-.bg_img_blur {
-    display: grid;
-    grid-template-rows: auto auto;
-}
-
-.custom_tab .bg_img_blur .heading {
-    height: 60%;
-}
-
-.custom-tab-range-input {
-    position: relative;
-    top: 15px;
-    left: 20px;
-    width: 75%;
-    height: 5px;
-    z-index: 3;
+.del_bm_btn_con input {
+    margin: 1rem 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -107,6 +84,8 @@
         border-radius: 0;
         height: 100vh;
         top: 0;
+        transform: translate(0, 0);
+
     }
 
     .custom_tab.active {

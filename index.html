@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Google</title>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/toolbar.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/search-bar.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/bookmark.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/popup.css'>
@@ -84,34 +85,34 @@
 	</div>
 
 
-	<div class="custom_btn">
-		<p>Customize Chrome</p>
-	</div>
+	<div class="custom_btn">Customize Chrome</div>
 
 
 	<div class="custom_tab">
-		<div class="bgimg_section">
-			<div class="heading">Change Background Image</div>
-			<div class="bg_imgs">
-				<div class="blank_img bg_img">
+		<div class="main-container">
+			<div class="bgimg_section container">
+				<div class="heading first">Change Background Image</div>
+				<div class="bg_imgs">
+					<div class="blank_img bg_img"></div>
+					<img class="bg_img bg" src="Images/windows-darkmode.jpg">
+					<img class="bg_img bg" src="Images/windows-lightmode.jpg.jpg">
+					<img class="bg_img bg" src="Images/earth.jpeg">
+					<img class="bg_img bg" src="Images/Screenshot 42.png">
+					<div class="bg_img bg_img_add">
+						<img style="width: 20px;" src="Icons/plus.png">
+					</div>
 				</div>
-				<img class="bg_img bg" src="Images/windows-darkmode.jpg">
-				<img class="bg_img bg" src="Images/windows-lightmode.jpg.jpg">
-				<img class="bg_img bg" src="Images/earth.jpeg">
-				<img class="bg_img bg" src="Images/Screenshot 42.png">
-				<div class="bg_img bg_img_add"><img style="width: 20px; position: relative; top: 35%;"
-						src="Icons/plus.png"></div>
 			</div>
-		</div>
-		<div class="bg_img_blur">
-			<div class="heading">On or Off Background Image Blurety</div>
-			<input type="range" min="0" max="30" class="bg_img_blur_input custom-tab-range-input" name="">
-		</div>
-		<div class="bg_img_blur">
-			<div class="heading">Transparancy</div>
-			<input type="range" min="0" max="1" step="0.1" class="custom-tab-range-input bg_transparancy_input" name="">
-		</div>
-		<div class="text_clr_con">
+			<div class="bg_img_blur container">
+				<div class="heading">On or Off Background Image Blurety</div>
+				<input type="range" min="0" max="30" class="bg_img_blur_input custom-tab-range-input" name="">
+			</div>
+			<div class="bg_img_transparancy container">
+				<div class="heading">Transparancy</div>
+				<input type="range" min="0" max="1" step="0.1" class="custom-tab-range-input bg_transparancy_input"
+					name="">
+			</div>
+			<!-- <div class="text_clr_con">
 			<div class="text_clrs">
 				<div class="text_clr"></div>
 				<div class="text_clr"></div>
@@ -119,12 +120,13 @@
 				<div class="text_clr"></div>
 				<div class="text_clr"></div>
 			</div>
-		</div>
-		<div class="del_bm_btn_con">
-			<input type="button" value="Clear All Bookmarks" title="Bookmarks">
-		</div>
-		<div class="del_btn_con">
-			<input type="button" value="Clear All Data" title="Bookmarks, Blur, Background Image .etc">
+		</div> -->
+			<div class="del_bm_btn_con container">
+				<input type="button" value="Delete Bookmarks" title="Bookmarks">
+			</div>
+			<div class="del_btn_con container">
+				<input type="button" value="Clear All Data" title="Bookmarks, Blur, Background Image .etc">
+			</div>
 		</div>
 	</div>
 

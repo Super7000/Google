@@ -29,43 +29,6 @@ html {
     filter: blur(var(--blur));
 }
 
-.toolbar {
-    position: absolute;
-    right: 20px;
-    top: 0;
-    width: 19.5em;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    font-size: 0.9em;
-}
-
-.toolbar a {
-    text-decoration: none;
-    color: #000;
-    text-align: center;
-    margin-top: auto;
-    border-radius: 7px;
-}
-
-.toolbar a:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.toolbar .sign_in {
-    background: dodgerblue;
-    color: #fff;
-}
-
-.toolbar .sign_in:hover {
-    background: rgba(30, 144, 255, 0.8);
-}
-
-.toolbar a img {
-    position: relative;
-    top: 0;
-    padding: 12px 0 10px 0;
-}
-
 .logo {
     position: absolute;
     top: 32%;
@@ -76,8 +39,9 @@ html {
 .custom_btn {
     font-size: 0.9em;
     color: dodgerblue;
-    margin: auto;
-    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
     width: 12em;
     height: 3em;
     border-radius: 3.6em;
