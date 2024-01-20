@@ -15,11 +15,11 @@ document.querySelector(".save_sortcut").addEventListener("click", () => {
 function saveBookmark() {
     let bookmarkName = document.querySelector(".add_bookmark_name");
     let bookmarkURL = document.querySelector(".add_bookmark_url");
-    let bookmarkIconPath = document.querySelector(".add_bookmark_img_path");
+    let bookmarkIconPath = document.querySelector(".bookmark_icon_input").files[0];
 
     let bookmarkNameValue = bookmarkName.value.trim();
     let bookmarkURLValue = bookmarkURL.value.trim();
-    let bookmarkIconPathValue = bookmarkIconPath.value.trim();
+    let bookmarkIconPathValue = createImagePath(bookmarkIconPath);
 
     // Validating Inputs given by User
     if (bookmarkNameValue == null || bookmarkNameValue == "") return;
@@ -96,7 +96,10 @@ function clickListenerForABookmark(index) {
 
         document.querySelector(".add_bookmark_name").value = bookmark.querySelector(".link_tab_para").title;
         document.querySelector(".add_bookmark_url").value = bookmark.querySelector(".links").dataset.link;
-        document.querySelector(".add_bookmark_img_path").value = bookmark.querySelector(".link_tab_circle").innerHTML.length > 1 ? "" : bookmark.querySelector(".link_tab_img").src;
+        let path = bookmark.querySelector(".link_tab_circle").innerHTML.length > 1 ? bookmark.querySelector(".link_tab_img").src : "";
+        // Applying change in UI
+        document.querySelector(`.bookmark_icon_preview.img_preview`).style.cssText = `background: url("${path}"); background-size: cover; background-attachment: fixed; z-index: -1; border: 2px solid #000`;
+            
     })
 }
 
@@ -124,4 +127,15 @@ function checkIconPathAndName(bookmarkIconPathValue, bookmarkNameValue) {
         name = bookmarkNameValue;
     }
     return { imgHTML: imgHTML, name: name };
+}
+
+function createImagePath(imgFile, onloadFunc = (path) => { }) {
+    let path = "noImg";
+    const reader = new FileReader();
+    reader.readAsDataURL(imgFile);
+    reader.onload = (e) => {
+        path = e.target.result;
+        onloadFunc(path);
+    }
+    return path;
 }

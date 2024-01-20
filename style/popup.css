@@ -95,11 +95,13 @@
     align-items: center;
     height: 20vh;
     z-index: -1;
+    text-align: center;
 }
 
-.bg_img_preview {
+.img_preview {
     position: relative;
     top: -40vh;
+    width: 100%;
     height: 20vh;
     z-index: -2;
 }

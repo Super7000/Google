@@ -44,12 +44,14 @@ cus_toggle(".cancel_sign_in_btn", ".sign_in_con", "click", "active");
 
 document.querySelector(".change_bg_img").addEventListener("click", function () {
     let bg = "none";
-    if (settings.has("bg_img_path")) {
-        bg = ` url("${settings.settings["bg_img_path"]}")`;
-    }
-    document.querySelector(".bg_img_con").style.cssText = `background:${bg}; background-size: cover;
-    background-attachment: fixed;`;
-    document.querySelector(".add_bg_img_con").classList.toggle('active');
+    let imgFile = document.querySelector(".bg_img_path_input").files[0];
+    createImagePath(imgFile, (bg) => {
+        settings.addSetting("bg_img_path", bg);
+
+        document.querySelector(".bg_img_con").style.cssText = `background:${bg}; background-size: cover;
+        background-attachment: fixed;`;
+        document.querySelector(".add_bg_img_con").classList.toggle('active');
+    });
 })
 
 function start_up() {
@@ -107,26 +109,50 @@ document.querySelector(".del_bm_btn_con").addEventListener("click", () => {
     start_up();
 })
 
-document.querySelector(".bg_img_path").addEventListener("change", () => {
-    try {
-        let imgFile = document.querySelector(".bg_img_path").files[0];
 
-        const reader = new FileReader();
-        reader.readAsDataURL(imgFile);
-        reader.onload = (e) => {
-            let path = e.target.result;
-            settings.addSetting("bg_img_path", path);
-
-            // Applying change in UI
-            document.querySelector('.bg_img_preview').style.cssText = `background: url("${path}"); background-size: cover;
-        background-attachment: fixed; z-index: -1;`;
+function changeEventListener(imgInputClass, imgPreviewClass) {
+    document.querySelector(`.${imgInputClass}`).addEventListener("change", () => {
+        try {
+            let imgFile = document.querySelector(`.${imgInputClass}`).files[0];
+            createImagePath(imgFile, (path) => {
+                // Applying change in UI
+                document.querySelector(`.${imgPreviewClass}.img_preview`).style.cssText = `background: url("${path}"); background-size: cover; background-attachment: fixed; z-index: -1; border: 2px solid #000`;
+            });
+        } catch (error) {
+    
         }
-    } catch (error) {
+    })
+}
+changeEventListener("bg_img_path_input","bg_img_preview");
+changeEventListener("bookmark_icon_input","bookmark_icon_preview");
 
+
+document.querySelector(".cancel_bg_img_btn").addEventListener("click", () => {
+    document.querySelector('.bg_img_preview.img_preview').style.cssText = "";
+    document.querySelector(".bg_img_path_input").value = "";
+})
+
+document.querySelector(".cancel_sortcut_btn").addEventListener("click", () => {
+    document.querySelector('.bookmark_icon_preview.img_preview').style.cssText = "";
+    document.querySelector(".bookmark_icon_input").value = "";
+})
+
+document.querySelector(".add_bm_btn").addEventListener("click",()=>{
+    document.querySelector(".add_bookmark_name").value = "";
+    document.querySelector(".add_bookmark_url").value = "";
+    document.querySelector(".bookmark_icon_input").value = "";
+    document.querySelector(`.bookmark_icon_preview.img_preview`).style.cssText = "";
+
+})
+
+
+function createImagePath(imgFile, onloadFunc = (path) => { }) {
+    let path = "noImg";
+    const reader = new FileReader();
+    reader.readAsDataURL(imgFile);
+    reader.onload = (e) => {
+        path = e.target.result;
+        onloadFunc(path);
     }
-})
-
-document.querySelector(".cancel_bg_img_btn").addEventListener("click",()=>{
-    document.querySelector('.bg_img_preview').style.cssText = "";
-    document.querySelector(".bg_img_path").value = "";
-})
+    return path;
+}

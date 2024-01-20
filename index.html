@@ -20,10 +20,10 @@
 
 
 	<div class="toolbar">
-		<a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl">
+		<a href="https://mail.google.com/mail/">
 			<p>Gmail</p>
 		</a>
-		<a href="https://www.google.co.in/imghp?hl=en&tab=ri&authuser=0&ogbl">
+		<a href="https://www.google.co.in/imghp">
 			<p>Images</p>
 		</a>
 		<a href="#">
@@ -73,9 +73,14 @@
 			<input type="text" class="add_bookmark_url text-box" required>
 		</div>
 		<div class="section">
-			<p>Icon Path</p>
-			<input type="text" class="add_bookmark_img_path text-box">
+			<p>Select a Image</p>
+			<div class="file_input_container">
+				<input type="file" class="bookmark_icon_input file_input" id="" accept="image/*" required>
+				<div class="file_label">Click or <br>Drag & Drop <br>a Image</div>
+				<div class="bookmark_icon_preview img_preview"></div>
+			</div>
 		</div>
+
 		<div class="section btn-container">
 			<div>
 				<input type="button" value="Cancel" class="cancel_sortcut_btn btn blue-border">
@@ -136,9 +141,9 @@
 		<div class="section">
 			<p>Select a Image</p>
 			<div class="file_input_container">
-				<input type="file" class="bg_img_path file_input" id="bg_img_path" accept="image/*" required>
+				<input type="file" class="bg_img_path_input file_input" id="bg_img_path" accept="image/*" required>
 				<div class="file_label">Click or Drag & Drop a Image</div>
-				<div class="bg_img_preview"></div>
+				<div class="bg_img_preview img_preview"></div>
 			</div>
 		</div>
 		<div class="section btn-container">
