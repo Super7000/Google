@@ -29,7 +29,7 @@ function cus_toggle(a, b, event, active) {
 cus_toggle(".custom_btn", ".custom_tab", "click", "active");
 
 document.querySelector(".bg_img_blur_input").addEventListener("change", function () {
-    localStorage.setItem("bg_img_blur", this.value);
+    settings.addSetting("bg_img_blur", this.value);
     start_up();
 })
 
