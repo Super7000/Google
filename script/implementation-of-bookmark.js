@@ -8,42 +8,6 @@ function showBookmarks() {
 }
 showBookmarks();
 
-document.querySelector(".save_sortcut").addEventListener("click", () => {
-    saveBookmark();
-})
-
-function saveBookmark() {
-    let bookmarkName = document.querySelector(".add_bookmark_name");
-    let bookmarkURL = document.querySelector(".add_bookmark_url");
-    let bookmarkIconPath = document.querySelector(".bookmark_icon_input").files[0];
-
-    let bookmarkNameValue = bookmarkName.value.trim();
-    let bookmarkURLValue = bookmarkURL.value.trim();
-    let bookmarkIconPathValue = createImagePath(bookmarkIconPath);
-
-    // Validating Inputs given by User
-    if (bookmarkNameValue == null || bookmarkNameValue == "") return;
-    if (bookmarkURLValue == null || bookmarkURLValue == "") return;
-
-    // Updating Bookmarks
-    // If the bookmark is found based on URL it will re-write the existing value (else path) and if not found it will add a new bookmark
-    let index = bookmarks.findByURL(bookmarkURLValue);
-    if (index == -1) {
-        if (bookmarks.getLength() < 10) {
-            bookmarks.addBookmark(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathValue);
-            addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathValue); // UI logic
-        }
-    } else {
-        bookmarks.editBookmark(index, bookmarkNameValue, bookmarkURLValue, bookmarkIconPathValue);
-        updateBookmarkValuesInUI(index, bookmarkNameValue, bookmarkURLValue, bookmarkIconPathValue); // UI logic
-    }
-
-
-    // UI logics
-    // Closeing Bookmark Popup
-    document.querySelector(".add_bookmark_con").classList.toggle('active');
-}
-
 function addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathValue) {
     let index;
     try {
@@ -52,7 +16,7 @@ function addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathVa
         index = 0;
     }
     let bookmarkImgHtmlAndName = checkIconPathAndName(bookmarkIconPathValue, bookmarkNameValue);
-    let bookmarkString = `<div class="link_tab_link">
+    let bookmarkString = `<div class="link_tab_link bookmark">
                 <div class="edit_delete edit_bm" data-index="${index}"><img src="Icons/edit.png"></div>
                 <div class="edit_delete delete_bm" data-index="${index}"><img src="Icons/delete.svg"></div>
                 <div class="link_tab links" data-link="${bookmarkURLValue}">
@@ -99,7 +63,7 @@ function clickListenerForABookmark(index) {
         let path = bookmark.querySelector(".link_tab_circle").innerHTML.length > 1 ? bookmark.querySelector(".link_tab_img").src : "";
         // Applying change in UI
         document.querySelector(`.bookmark_icon_preview.img_preview`).style.cssText = `background: url("${path}"); background-size: cover; background-attachment: fixed; z-index: -1; border: 2px solid #000`;
-            
+
     })
 }
 
@@ -129,13 +93,16 @@ function checkIconPathAndName(bookmarkIconPathValue, bookmarkNameValue) {
     return { imgHTML: imgHTML, name: name };
 }
 
-function createImagePath(imgFile, onloadFunc = (path) => { }) {
-    let path = "noImg";
-    const reader = new FileReader();
-    reader.readAsDataURL(imgFile);
-    reader.onload = (e) => {
-        path = e.target.result;
-        onloadFunc(path);
+
+document.querySelector(".del_bm_btn_con").addEventListener("click", () => {
+    try {
+        bookmarks.clearAllBookmarks();
+
+        //updating UI
+        document.querySelectorAll(".bookmark").forEach((bookmark) => {
+            bookmark.remove();
+        });
+    } catch (err) {
+
     }
-    return path;
-}
+})

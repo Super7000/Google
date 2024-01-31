@@ -10,7 +10,7 @@
 
 .toolbar a {
     text-decoration: none;
-    color: #000;
+    color: var(--text_clr);
     text-align: center;
     margin-top: auto;
     border-radius: 7px;

@@ -1,0 +1,30 @@
+function cus_toggle(a, b, event, active) {
+    document.querySelector(a).addEventListener(event, function () {
+        document.querySelector(b).classList.toggle(active);
+    })
+}
+
+function createImagePath(imgFile, onloadFunc = (path) => { }) {
+    let path = "none";
+    const reader = new FileReader();
+    reader.readAsDataURL(imgFile);
+    reader.onload = (e) => {
+        path = e.target.result;
+        onloadFunc(path);
+    }
+    return path;
+}
+
+function changeEventListener(imgInputClass, imgPreviewClass) {
+    document.querySelector(`.${imgInputClass}`).addEventListener("change", () => {
+        try {
+            let imgFile = document.querySelector(`.${imgInputClass}`).files[0];
+            createImagePath(imgFile, (path) => {
+                // Applying change in UI
+                document.querySelector(`.${imgPreviewClass}.img_preview`).style.cssText = `background: url("${path}"); background-size: cover; background-attachment: fixed; z-index: -1; border: 2px solid #000`;
+            });
+        } catch (error) {
+    
+        }
+    })
+}

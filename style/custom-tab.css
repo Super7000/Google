@@ -1,6 +1,6 @@
 .custom_tab {
     position: fixed;
-    left: -50%;
+    left: -100%;
     top: 50%;
     transform: translate(0, -50%);
     width: 27%;
