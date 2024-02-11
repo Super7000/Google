@@ -34,9 +34,9 @@ function addBookmarkInUI(bookmarkNameValue, bookmarkURLValue, bookmarkIconPathVa
     document.querySelector(".bookmarks").style.cssText = `grid-template-columns: repeat(${repeatCount},auto);`
     clickListenerForABookmark(index);
     if (bookmarks.getLength() < 10) {
-        document.querySelector(".add_bm_btn").classList.remove("hide");
+        addBookmarkBtn.classList.remove("hide");
     } else {
-        document.querySelector(".add_bm_btn").classList.add("hide");
+        addBookmarkBtn.classList.add("hide");
     }
 }
 
@@ -60,9 +60,10 @@ function clickListenerForABookmark(index) {
 
         document.querySelector(".add_bookmark_name").value = bookmark.querySelector(".link_tab_para").title;
         document.querySelector(".add_bookmark_url").value = bookmark.querySelector(".links").dataset.link;
-        let path = bookmark.querySelector(".link_tab_circle").innerHTML.length > 1 ? bookmark.querySelector(".link_tab_img").src : "";
+        let path = bookmark.querySelector(".link_tab_circle").innerHTML.length > 8 ? bookmark.querySelector(".link_tab_img").src : "";
         // Applying change in UI
-        document.querySelector(`.bookmark_icon_preview.img_preview`).style.cssText = `background: url("${path}"); background-size: cover; background-attachment: fixed; z-index: -1; border: 2px solid #000`;
+        let style = path != "" ? `background: url("${path}"); background-size: cover; background-attachment: fixed; z-index: -1; border: 2px solid #000` : "";
+        document.querySelector(`.bookmark_icon_preview.img_preview`).style.cssText = style;
 
     })
 }
@@ -94,7 +95,7 @@ function checkIconPathAndName(bookmarkIconPathValue, bookmarkNameValue) {
 }
 
 
-document.querySelector(".del_bm_btn_con").addEventListener("click", () => {
+document.querySelector(".del_bm_btn_con input").addEventListener("click", () => {
     try {
         bookmarks.clearAllBookmarks();
 

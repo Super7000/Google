@@ -1,7 +1,7 @@
 cus_toggle(".bg_img_add", ".add_bg_img_con", "click", "active");
 cus_toggle(".cancel_bg_img_btn", ".add_bg_img_con", "click", "active");
 
-changeEventListener("bg_img_path_input","bg_img_preview");
+changeEventListenerForImagePreview("bg_img_path_input","bg_img_preview");
 
 document.querySelector(".cancel_bg_img_btn").addEventListener("click", () => {
     document.querySelector('.bg_img_preview.img_preview').style.cssText = "";

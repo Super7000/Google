@@ -41,7 +41,7 @@ document.querySelector(".bg_transparancy_input").addEventListener("change", func
     this.title = transparancyValue;
 })
 
-document.querySelector(".del_btn_con").addEventListener("click", () => {
+document.querySelector(".del_btn_con input").addEventListener("click", () => {
     settings.deleteSettings();
     start_up();
 })
