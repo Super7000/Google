@@ -1,0 +1,40 @@
+.loader {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 7px solid transparent;
+    border-top: 7px solid dodgerblue;
+    border-left: 7px solid dodgerblue;
+    border-bottom: 7px solid dodgerblue;
+}
+
+.loaderContainer.active .loader {
+    animation: spin 3s linear infinite;
+}
+
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    display: none;
+    z-index: 20;
+}
+
+.loaderContainer.active {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

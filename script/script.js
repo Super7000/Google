@@ -10,3 +10,7 @@ function start_up() {
 }
 
 window.addEventListener('onload', start_up());
+
+window.onload = () => {
+    document.querySelector(".loaderContainer").classList.remove("active");
+}
