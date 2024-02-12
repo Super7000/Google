@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Google</title>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/loader.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style/error-box.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/toolbar.css'>
 	<link rel='stylesheet' type='text/css' media='screen' href='style/search-bar.css'>
@@ -19,6 +20,14 @@
 <body>
 	<div class="loaderContainer active">
 		<div class="loader"></div>
+	</div>
+
+
+	<div class="errorBox">
+		<div class="errorMsg">Error Message</div>
+		<div class="close_err_btn cross">
+			<img src="./Icons/close.svg">
+		</div>
 	</div>
 
 
@@ -179,6 +188,8 @@
 		</div>
 	</div>
 
+
+	<script src="script/custom-error.js"></script>
 
 	<script src="script/common-scripts.js"></script>
 

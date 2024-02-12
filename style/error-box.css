@@ -1,0 +1,45 @@
+.errorBox {
+    /* width: 25%; 
+    height: 60px;*/
+    background: rgb(255, 203, 130);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 20;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 35px;
+    gap: 10px;
+    padding: 15px 20px;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.errorBox.active {
+    top: 10px;
+}
+
+/* .errorBox .errorMsg {
+    position: relative;
+    left: 30px;
+} */
+
+.cross img {
+    transform: rotate(45deg);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.cross {
+    padding: 5px;
+    width: 25px;
+}
+
+.cross:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}

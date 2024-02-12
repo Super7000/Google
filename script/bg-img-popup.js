@@ -10,7 +10,10 @@ document.querySelector(".cancel_bg_img_btn").addEventListener("click", () => {
 
 document.querySelector(".change_bg_img.btn").addEventListener("click", ()=>{
     let imgFile = document.querySelector(".bg_img_path_input");
-    if (imgFile.files.length == 0) return;
+    if (imgFile.files.length == 0) {
+        showErrorBox("Please Select a Image");
+        return;
+    }
 
     createImagePath(imgFile.files[0], (bg) => {
         settings.addSetting("bg_img_path", bg);
