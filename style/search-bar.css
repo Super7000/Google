@@ -1,4 +1,3 @@
-
 .search_box {
     min-width: 23.5em;
     width: 38%;
@@ -16,7 +15,8 @@
     align-items: center;
 }
 
-.search-icon-con, .mic-icon-con{
+.search-icon-con,
+.mic-icon-con {
     display: grid;
     justify-content: center;
     align-items: center;

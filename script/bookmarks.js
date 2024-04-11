@@ -53,8 +53,8 @@ class Bookmarks {
 
     findByURL(url) {
         let len = this.getLength();
-        for(var i = 0; i < len; i++) {
-            if(this.bookmarksList[i].url == url) {
+        for (var i = 0; i < len; i++) {
+            if (this.bookmarksList[i].url == url) {
                 return i;
             }
         }

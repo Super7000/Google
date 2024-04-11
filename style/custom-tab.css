@@ -58,13 +58,15 @@
     align-items: center;
 }
 
-.bg_img_blur input, .bg_img_transparancy input {
+.bg_img_blur input,
+.bg_img_transparancy input {
     height: 4px;
     width: 90%;
     cursor: pointer;
 }
 
-.del_bm_btn_con input, .del_btn_con input {
+.del_bm_btn_con input,
+.del_btn_con input {
     background: dodgerblue;
     color: #fff;
     border: none;
