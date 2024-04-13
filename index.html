@@ -54,12 +54,10 @@
 
 	<div class="search_box">
 		<div class="search-icon-con">
-			<img src="Icons/search.png" class="search_icon" id="search_icon"
-				onclick="search(document.getElementById('search').value)">
+			<img src="Icons/search.png" class="search_icon" id="search_icon">
 		</div>
 		<div>
-			<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search"
-				onkeydown="if (event.keyCode == 13) {search(this.value); this.value= ''}">
+			<input type="text" name="" id="search" placeholder="Search Google or type a URL" class="search">
 		</div>
 		<div class="mic-icon-con">
 			<img src="Icons/mic.png" class="mic">
@@ -194,6 +192,7 @@
 	<script src="script/common-scripts.js"></script>
 
 	<script src="script/search.js"></script>
+	<script src="script/search-implementation.js" defer></script>
 
 	<script src="script/settings.js"></script>
 	<script src="script/setting-implementation.js"></script>
